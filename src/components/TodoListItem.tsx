@@ -1,7 +1,17 @@
 import React, { FC } from 'react';
-import { ITodo } from './../interfaces/TodoInterface';
-import { IProps } from './../interfaces/PropsInterface';
 
-export const TodoListItem: FC<IProps> = props => {
-    return <li>content</li>;
+interface Props {
+    todo: Todo;
+  }
+  
+export const TodoListItem: FC<Props> = ({ todo }) => {
+    return (
+        <li>
+            <label
+                style={{ textDecoration: todo.complete ? 'line-through' : undefined }}
+            >
+                <input type="checkbox" checked={todo.complete} /> {todo.text}
+            </label>
+        </li>
+    );
 }
