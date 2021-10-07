@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TodoListItem } from './components/TodoListItem';
+import { TodoList } from './components/TodoList';
 
 
 const initialTodos: Todo[] = [
@@ -17,7 +17,7 @@ function App() {
 
   const [todos, setTodos] = useState(initialTodos);
 
-  const toogleTodo = (selectedTodo: Todo) => {
+  const toggleTodo = (selectedTodo: Todo) => {
     const newTodos = todos.map(todo => {
       if(todo === selectedTodo){
         return {
@@ -31,8 +31,7 @@ function App() {
   }
   return (
     <div className="App">
-      <TodoListItem todo={todos[0]} />
-      <TodoListItem todo={todos[1]} />
+      <TodoList todos={todos} toggleTodo={toggleTodo}/>
       
     </div>
   );
